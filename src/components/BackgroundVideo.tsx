@@ -48,7 +48,7 @@ export default memo(function BackgroundVideo({
 
   useGSAP(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !videoSrc) return;
 
     setLoading(false);
     const setupTimeline = () => {
