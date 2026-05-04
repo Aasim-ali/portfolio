@@ -50,7 +50,7 @@ export default memo(function BackgroundVideo({
     const video = videoRef.current;
     if (!video) return;
 
-    // setLoading(false);
+    setLoading(false);
     const setupTimeline = () => {
       gsap.to(video, {
         currentTime: video.duration,
