@@ -13,9 +13,9 @@ import Loader from "./components/Loader";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const [loading, setLoading] = useState(true)
-
 function App() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <>
       <BackgroundVideo setLoading={setLoading}/>
