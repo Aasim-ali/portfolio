@@ -8,24 +8,33 @@ import BackgroundVideo from "./components/BackgroundVideo";
 
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import { useState } from "react";
+import Loader from "./components/Loader";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
+
+const [loading, setLoading] = useState(true)
 
 function App() {
   return (
     <>
-      <BackgroundVideo />
-      <Navbar />
+      <BackgroundVideo setLoading={setLoading}/>
+      {loading ?
+        <Loader loading={loading} />
+        :
+        <>
+          <Navbar />
 
-      {/* Page content */}
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
-        <section id="end"></section>
-      </main>
+          <main className="relative z-10">
+            <Hero />
+            <About />
+            <Projects />
+            <Skills />
+            <Contact />
+            <section id="end"></section>
+          </main>
+        </>
+      }
     </>
   );
 }
