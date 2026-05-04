@@ -74,7 +74,7 @@ export default function Contact() {
   };
 
   // Fallback Method (Catch ke liye)
-  const fallbackCopy = (text) => {
+  const fallbackCopy = (text: string) => {
     const textArea = document.createElement("textarea");
     textArea.value = text;
 
