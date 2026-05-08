@@ -21,12 +21,12 @@ export default function About() {
     let ctx = gsap.context(() => {
       // Avatar animation
       if (avatarRef.current) {
-        gsap.fromTo(avatarRef.current, 
-          { opacity: 0, scale: 0.92 }, 
-          { 
-            opacity: 1, 
-            scale: 1, 
-            duration: 0.8, 
+        gsap.fromTo(avatarRef.current,
+          { opacity: 0, scale: 0.92 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
             ease: "power3.out",
             scrollTrigger: {
               trigger: avatarRef.current,

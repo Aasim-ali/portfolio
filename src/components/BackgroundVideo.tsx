@@ -23,13 +23,11 @@ export default memo(function BackgroundVideo({
           endTrigger: "#end",
           end: "bottom bottom",
           scrub: 1,
-        }
+        },
       });
-      // Video fully ready hai — ab loader hatao
       setLoading(false);
     };
 
-    // Agar video already fully buffered hai toh seedha setup karo
     if (video.readyState >= 4) {
       setupTimeline();
     } else {
@@ -46,6 +44,7 @@ export default memo(function BackgroundVideo({
         muted
         playsInline
         preload="auto"
+        loop
       />
     </div>
   );

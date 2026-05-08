@@ -31,10 +31,10 @@ function App() {
             <Projects />
             <Skills />
             <Contact />
-            <section id="end"></section>
           </main>
         </>
       }
+      <section id="end"></section>
     </>
   );
 }
