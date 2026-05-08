@@ -12,23 +12,25 @@ export default memo(function BackgroundVideo({
   useGSAP(() => {
     const video = videoRef.current;
     if (!video) return;
-    setLoading(false);
+
     const setupTimeline = () => {
       gsap.to(video, {
         currentTime: video.duration,
         ease: "none",
         scrollTrigger: {
-          trigger: document.body,   // 👈 body ko trigger banao, video ko nahi
+          trigger: document.body,
           start: "top top",
           endTrigger: "#end",
           end: "bottom bottom",
-          scrub: 1,                 // 👈 0.5 laggy lagta hai, 1 better hai
+          scrub: 1,
         }
       });
+      // Video fully ready hai — ab loader hatao
+      setLoading(false);
     };
 
-    // metadata already loaded ho chuka ho toh seedha setup karo
-    if (video.readyState >= 1) {
+    // Agar video already fully buffered hai toh seedha setup karo
+    if (video.readyState >= 4) {
       setupTimeline();
     } else {
       video.addEventListener('canplaythrough', setupTimeline, { once: true });
