@@ -8,23 +8,23 @@ import { BsArrowUpRightCircle } from "react-icons/bs";
 const projects = [
   {
     id: "01",
-    title: "Enterprise Dashboard",
-    category: "Full-Stack · Next.js · Tailwind",
-    description:
-      "A powerful analytics and management platform with real-time data visualization, role-based access control, and a responsive design system built from scratch.",
-    tags: ["Next.js", "TypeScript", "MongoDB", "Chart.js"],
+    title: "RojAvasar",
+    category: "Node.js · Next.js · React.js",
+    description: "India's leading community-driven platform for blue-collar job discovery. RojAvasar simplifies hiring by connecting verified local professionals with homeowners and businesses through a scalable Next.js and Node.js ecosystem, ensuring trust, affordability, and economic growth for millions.",
+    tags: ["Next.js", "React.js", "Typescript", "Node.js", "MongoDB"],
     cardClass: "bg-white/10",
     dotClass: "bg-violet-500",
+    link: "http://187.127.155.185:3000/"
   },
   {
     id: "02",
-    title: "Multiplayer Web App",
-    category: "MERN · WebSockets · Real-time",
-    description:
-      "Real-time collaborative platform powered by Socket.IO — featuring live cursors, instant sync, and a scalable Node.js backend handling thousands of concurrent sessions.",
-    tags: ["React", "Node.js", "Socket.IO", "Express"],
+    title: "My-Ai",
+    category: "Next.js · Django · OpenRouterApis",
+    description: "Resilient AI Assistant powered by Next.js & Django. Features a custom failover logic across 5+ OpenRouter models to deliver a premium, 'always-on' AI experience completely on the free tier.",
+    tags: ["Next.js", "Django", "OpenRouterApis"],
     cardClass: "bg-white/10",
     dotClass: "bg-cyan-500",
+    link: "https://my-ai-next.vercel.app/"
   },
 ];
 
@@ -119,13 +119,15 @@ export default function Projects() {
                     <span className={`h-2 w-2 rounded-full ${p.dotClass}`} />
                     <span className="tag-pill">{p.category}</span>
                   </div>
-                  <button
+                  <a
+                    href={p.link}
+                    target="_blank"
                     data-cursor
                     data-cursor-label="VIEW"
                     className="p-4 rounded-full bg-white text-black hover:scale-110 transition-transform"
                   >
                     <BsArrowUpRightCircle size={22} />
-                  </button>
+                  </a>
                 </div>
 
                 {/* Middle number */}
