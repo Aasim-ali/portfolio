@@ -96,6 +96,17 @@ h3 {
   line-height: 0.9;
 }
 
+/* ── Projects horizontal stage ─────────────────────────────────────── */
+.projects-stage {
+  perspective: 1400px;
+}
+
+.project-card-inner {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
 body::before {
   content: "";
   position: fixed;

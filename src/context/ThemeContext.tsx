@@ -48,28 +48,9 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const STORAGE_KEY = "portfolio-theme";
-
-function loadStoredTheme(): { mode: ThemeMode; accent: AccentId } {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      return {
-        mode: parsed.mode === "light" ? "light" : "dark",
-        accent: ACCENTS[parsed.accent as AccentId] ? parsed.accent : "violet",
-      };
-    }
-  } catch {
-    /* ignore */
-  }
-  return { mode: "dark", accent: "violet" };
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const stored = loadStoredTheme();
-  const [mode, setMode] = useState<ThemeMode>(stored.mode);
-  const [accent, setAccent] = useState<AccentId>(stored.accent);
+  const [mode, setMode] = useState<ThemeMode>("light");
+  const [accent, setAccent] = useState<AccentId>("rose");
 
   useEffect(() => {
     const root = document.documentElement;
@@ -92,7 +73,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       `${colors.primary}40`
     );
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ mode, accent }));
   }, [mode, accent]);
 
   return (

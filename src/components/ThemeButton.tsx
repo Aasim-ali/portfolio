@@ -5,7 +5,6 @@ import { ACCENTS, useTheme, type AccentId, type ThemeMode } from "../context/The
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { MdPalette } from "react-icons/md";
 
-const POSITION_KEY = "theme-btn-pos";
 const DRAG_THRESHOLD = 6;
 
 export default function ThemeButton() {
@@ -25,20 +24,10 @@ export default function ThemeButton() {
   });
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(POSITION_KEY);
-      if (raw) {
-        const { x, y } = JSON.parse(raw);
-        setPos({ x, y });
-      } else {
-        setPos({
-          x: window.innerWidth - 72,
-          y: window.innerHeight - 72,
-        });
-      }
-    } catch {
-      /* ignore */
-    }
+    setPos({
+      x: window.innerWidth - 72,
+      y: window.innerHeight - 72,
+    });
   }, []);
 
   const clampPosition = useCallback((x: number, y: number) => {
@@ -87,7 +76,6 @@ export default function ThemeButton() {
     const wasMoved = dragRef.current.moved;
     dragRef.current.active = false;
     setDragging(false);
-    localStorage.setItem(POSITION_KEY, JSON.stringify(pos));
     if (!wasMoved) setOpen((v) => !v);
   };
 
@@ -121,9 +109,8 @@ export default function ThemeButton() {
           top: pos.y,
           touchAction: "none",
         }}
-        className={`theme-fab fixed z-[9000] flex h-[52px] w-[52px] items-center justify-center rounded-full border backdrop-blur-xl transition-shadow duration-300 ${
-          dragging ? "cursor-grabbing scale-105" : "cursor-grab hover:scale-110"
-        } ${open ? "theme-fab-active" : ""}`}
+        className={`theme-fab fixed z-[9000] flex h-[52px] w-[52px] items-center justify-center rounded-full border backdrop-blur-xl transition-shadow duration-300 ${dragging ? "cursor-grabbing scale-105" : "cursor-grab hover:scale-110"
+          } ${open ? "theme-fab-active" : ""}`}
       >
         <MdPalette size={22} className="text-[var(--accent)]" />
         <span className="theme-fab-ring" aria-hidden />
@@ -173,16 +160,14 @@ export default function ThemeButton() {
                     key={m}
                     type="button"
                     onClick={() => setMode(m)}
-                    className={`theme-mode-btn flex flex-col items-center gap-3 rounded-2xl border p-4 transition-all duration-300 ${
-                      mode === m ? "theme-mode-btn-active" : ""
-                    }`}
+                    className={`theme-mode-btn flex flex-col items-center gap-3 rounded-2xl border p-4 transition-all duration-300 ${mode === m ? "theme-mode-btn-active" : ""
+                      }`}
                   >
                     <div
-                      className={`flex h-14 w-full items-center justify-center rounded-xl ${
-                        m === "dark"
+                      className={`flex h-14 w-full items-center justify-center rounded-xl ${m === "dark"
                           ? "bg-[#0a0a0a] border border-white/10"
                           : "bg-white border border-black/10"
-                      }`}
+                        }`}
                     >
                       {m === "dark" ? (
                         <HiOutlineMoon size={24} className="text-white/80" />
@@ -206,9 +191,8 @@ export default function ThemeButton() {
                       key={id}
                       type="button"
                       onClick={() => setAccent(id)}
-                      className={`theme-accent-btn flex flex-col items-center gap-2 rounded-2xl border p-3 transition-all duration-300 ${
-                        accent === id ? "theme-accent-btn-active" : ""
-                      }`}
+                      className={`theme-accent-btn flex flex-col items-center gap-2 rounded-2xl border p-3 transition-all duration-300 ${accent === id ? "theme-accent-btn-active" : ""
+                        }`}
                     >
                       <div
                         className="h-10 w-10 rounded-full transition-all"
