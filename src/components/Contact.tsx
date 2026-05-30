@@ -194,7 +194,7 @@ export default function Contact() {
       </div>
 
       <div
-        className="absolute bottom-0 left-0 right-0 text-center text-[20vw] font-black leading-none pointer-events-none select-none"
+        className="font-display-tight absolute bottom-0 left-0 right-0 text-center text-[20vw] font-extrabold leading-none pointer-events-none select-none"
         style={{ lineHeight: 0.85, color: "var(--accent)", opacity: 0.04 }}
       >
         AASIM

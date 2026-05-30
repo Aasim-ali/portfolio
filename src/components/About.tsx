@@ -107,7 +107,7 @@ export default function About() {
 
             <div className="text-center">
               <div
-                className="text-[8rem] font-black leading-none gradient-text select-none"
+                className="font-display-tight text-[8rem] font-extrabold leading-none gradient-text select-none"
                 style={{ lineHeight: 1 }}
               >
                 SA

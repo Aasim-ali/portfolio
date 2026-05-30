@@ -2,7 +2,8 @@
 @source "../";
 
 @theme inline {
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Outfit", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -54,11 +55,45 @@ html {
 
 body {
   font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Display typography (Bricolage Grotesque) ─────────────────────── */
+:is(h1, h2, h3, .font-display) {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 48;
+  letter-spacing: -0.03em;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+h1, .hero-title {
+  font-variation-settings: "opsz" 96;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+
+h2 {
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-variation-settings: "opsz" 56;
+  letter-spacing: -0.025em;
+}
+
+.font-display-tight {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
 }
 
 body::before {
@@ -100,6 +135,9 @@ body::before {
 
 /* ── Gradient text (accent-driven) ────────────────────────────────── */
 .gradient-text {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.04em;
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, var(--accent) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -234,6 +272,12 @@ body::before {
 .nav-link--lg::after {
   bottom: 2px;
   height: 3px;
+}
+
+.nav-link--lg {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 48;
+  letter-spacing: -0.02em;
 }
 
 .nav-link--lg:hover {

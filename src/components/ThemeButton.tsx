@@ -152,7 +152,7 @@ export default function ThemeButton() {
               <div className="mb-6 flex items-center justify-between">
                 <div>
                   <p className="section-label mb-1">Appearance</p>
-                  <h3 className="text-xl font-bold text-[var(--foreground)]">
+                  <h3 className="font-display text-xl font-bold text-[var(--foreground)]">
                     Customize theme
                   </h3>
                 </div>
