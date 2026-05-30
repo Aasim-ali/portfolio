@@ -7,19 +7,37 @@ import {
 } from "react";
 
 export type ThemeMode = "light" | "dark";
-export type AccentId = "violet" | "cyan" | "rose" | "emerald" | "amber" | "blue";
+export type AccentId = "violet" | "cyan" | "rose" | "emerald" | "amber" | "blue" | "indigo" | "slate";
 
 export const ACCENTS: Record<
   AccentId,
   { label: string; primary: string; secondary: string }
 > = {
-  violet: { label: "Violet", primary: "#6c63ff", secondary: "#a855f7" },
-  cyan: { label: "Cyan", primary: "#00d4ff", secondary: "#0891b2" },
-  rose: { label: "Rose", primary: "#f43f5e", secondary: "#fb7185" },
-  emerald: { label: "Emerald", primary: "#10b981", secondary: "#34d399" },
-  amber: { label: "Amber", primary: "#f59e0b", secondary: "#fbbf24" },
-  blue: { label: "Blue", primary: "#3b82f6", secondary: "#60a5fa" },
+  // Deep, modern tech look (Better than old violet)
+  violet: { label: "Violet", primary: "#7c3aed", secondary: "#c084fc" },
+  
+  // Cyberpunk, vibrant contrast (Better than old cyan)
+  cyan: { label: "Cyan", primary: "#06b6d4", secondary: "#22d3ee" },
+  
+  // Premium coral/rose feel (Less aggressive pink)
+  rose: { label: "Rose", primary: "#e11d48", secondary: "#fda4af" },
+  
+  // Fresh, clean organic mint (Better than dull green)
+  emerald: { label: "Emerald", primary: "#059669", secondary: "#34d399" },
+  
+  // Warm honey/gold (Safe for text contrast)
+  amber: { label: "Amber", primary: "#d97706", secondary: "#fcd34d" },
+  
+  // Sleek, trustworthy brand blue (Tailwind-inspired)
+  blue: { label: "Blue", primary: "#2563eb", secondary: "#60a5fa" },
+
+  // NEW: Sleek corporate tech vibe
+  indigo: { label: "Indigo", primary: "#4f46e5", secondary: "#818cf8" },
+
+  // NEW: Minimalist dark/light mode accent
+  slate: { label: "Slate", primary: "#475569", secondary: "#94a3b8" },
 };
+
 
 interface ThemeContextValue {
   mode: ThemeMode;
